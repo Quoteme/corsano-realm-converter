@@ -50,10 +50,16 @@ async function main(platform) {
   for (const model of Object.values(dbm)) {
     console.log(model.name);
     const objects = realm.objects(model.name);
-    await fs.promises.writeFile(
-      `${outputDir}/${model.name}.json`,
-      JSON.stringify(objects)
-    );
+    const totalObjects = objects.length;
+    const chunkSize = 1000;
+
+    for (let i = 0; i < totalObjects; i += chunkSize) {
+      const chunk = objects.slice(i, i + chunkSize);
+      await fs.promises.writeFile(
+        `${outputDir}/${model.name}_${i / chunkSize + 1}.json`,
+        JSON.stringify(chunk)
+      );
+    };
   }
 }
 

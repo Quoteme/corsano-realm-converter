@@ -2,6 +2,19 @@ const Realm = require("realm");
 const fs = require("fs");
 
 async function main(platform) {
+  console.log("Starting Realm converter...")
+  /// nice ansi art with pretty colors
+  console.log(",------.                                          ,--.                ");
+  console.log("|  .--. ',--.--. ,---.  ,---. ,---.  ,---.  ,---. `--',--,--,  ,---.  ");
+  console.log("|  '--' ||  .--'| .-. || .--'| .-. :(  .-' (  .-' ,--.|      \| .-. | ");
+  console.log("|  | --' |  |   ' '-' '\ `--.\   --..-'  `).-'  `)|  ||  ||  |' '-' ' ");
+  console.log("`--'     `--'    `---'  `---' `----'`----' `----' `--'`--''--'.`-  /  ");
+  console.log(",------. ,------.  ,---.  ,--.   ,--.   ,--.                  `---'   ");
+  console.log("|  .--. '|  .---' /  O  \ |  |   |   `.'   |                          ");
+  console.log("|  '--'.'|  `--, |  .-.  ||  |   |  |'.'|  |                          ");
+  console.log("|  |\  \ |  `---.|  | |  ||  '--.|  |   |  |.--..--..--.              ");
+  console.log("`--' '--'`------'`--' `--'`-----'`--'   `--''--''--''--'              ");
+                                                                      
   if (process.argv.length != 5) {
     console.log("Usage: npm run start-ios/android <realm-file> <output-dir>");
     return;

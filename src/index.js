@@ -51,7 +51,7 @@ async function main(platform) {
     console.log(model.name);
     const objects = realm.objects(model.name);
     const totalObjects = objects.length;
-    const chunkSize = 1000;
+    const chunkSize = 100000;
 
     for (let i = 0; i < totalObjects; i += chunkSize) {
       const chunk = objects.slice(i, i + chunkSize);
